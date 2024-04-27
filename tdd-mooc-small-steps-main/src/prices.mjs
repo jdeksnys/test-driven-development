@@ -74,7 +74,7 @@ function createApp(database) {
     if(date){
       tempDate = date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
     }
-    if (date && isMonday(tempDate) && !isHoliday(date)) {
+    if (date && isMonday(tempDate) && !isHoliday(tempDate)) {
       reduction = 35;
     }
     return reduction;
@@ -85,16 +85,15 @@ function createApp(database) {
   }
 
   function isHoliday(date) {
-    let tempDate = date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
     const holidays = database.getHolidays();
     for (let row of holidays) {
       let holiday = new Date(row.holiday);
       let tempHoliday = holiday.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
       if (
-        tempDate &&
-        tempDate.year === tempHoliday.year &&
-        tempDate.month === tempHoliday.month &&
-        tempDate.day === tempHoliday.day
+        date &&
+        date.year === tempHoliday.year &&
+        date.month === tempHoliday.month &&
+        date.day === tempHoliday.day
       ) {
         return true;
       }

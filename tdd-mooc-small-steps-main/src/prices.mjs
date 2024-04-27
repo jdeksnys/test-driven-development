@@ -35,8 +35,8 @@ function createApp(database) {
   }
 
   function parseDateTemp(dateString) {
-    if(dateString){
-      return dateString.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
+    if (dateString) {
+      return Temporal.PlainDate.from(dateString);
     }
   }
 

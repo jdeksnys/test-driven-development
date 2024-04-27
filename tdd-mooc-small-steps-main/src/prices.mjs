@@ -74,15 +74,14 @@ function createApp(database) {
     if(date){
       tempDate = date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
     }
-    if (date && isMonday(date) && !isHoliday(date)) {
+    if (date && isMonday(tempDate) && !isHoliday(date)) {
       reduction = 35;
     }
     return reduction;
   }
 
   function isMonday(date) {
-    let tempDate = date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
-    return tempDate.dayOfWeek === 1;
+    return date.dayOfWeek === 1;
   }
 
   function isHoliday(date) {

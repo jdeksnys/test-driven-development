@@ -87,7 +87,7 @@ function createApp(database) {
       let tempHoliday = holiday.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
       if (
         date &&
-        date.getFullYear() === holiday.getFullYear() &&
+        date.getFullYear() === tempHoliday.year &&
         date.getMonth() === holiday.getMonth() &&
         date.getDate() === holiday.getDate()
       ) {

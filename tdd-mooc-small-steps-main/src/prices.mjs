@@ -38,6 +38,10 @@ function createApp(database) {
     if (dateString) {
       return new Date(dateString);
     }
+
+    if(dateString){
+      return dateString.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
+    }
   }
 
   function calculateCost(age, type, date, baseCost) {

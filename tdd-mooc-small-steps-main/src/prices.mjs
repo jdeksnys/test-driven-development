@@ -20,7 +20,7 @@ function createApp(database) {
     const type = req.query.type;
     const baseCost = database.findBasePriceByType(type).cost;
     const date = parseDate(req.query.date);
-    let tempDate = null;
+    let tempDate = parseDateTemp(req.query.date);
     if(date){
       tempDate = date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
     }

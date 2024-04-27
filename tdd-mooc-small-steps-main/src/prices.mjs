@@ -74,7 +74,7 @@ function createApp(database) {
     if(date){
       tempDate = date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
     }
-    if (date && isMonday(tempDate) && !isHoliday(tempDate)) {
+    if (tempDate && isMonday(tempDate) && !isHoliday(tempDate)) {
       reduction = 35;
     }
     return reduction;

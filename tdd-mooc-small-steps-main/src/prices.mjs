@@ -78,8 +78,6 @@ function createApp(database) {
 
   function isMonday(date) {
     let tempDate = date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate();
-    if(date!=undefined && date!=null){
-    }
     return date.getDay() === 1;
   }
 
